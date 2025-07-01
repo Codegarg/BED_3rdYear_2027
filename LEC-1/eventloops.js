@@ -17,4 +17,4 @@ fs.readFile("demo.txt",(data)=>{
     })
 })
 
-//console.log("end")
+console.log("end")

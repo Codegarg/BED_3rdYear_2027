@@ -1,3 +1,7 @@
+const fs = require("fs");
+console.log(fs);
+console.log("hi")
+
 function add(a,b){
     return a+b
 }
