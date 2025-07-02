@@ -1,4 +1,5 @@
 const file2 =require("./file2")
+console.log(file2);
 
 function sum(a,b){
     return a+b
