@@ -41,6 +41,9 @@ function buyProduct(product_Name,cb){
     };
 
 
-buyProduct("OnePlus 11", function(err,amount){
-    console.log("Product bought successfully");
+buyProduct("motorolla", function(err,amount){
+    if(err){
+        return console.log(err);
+    }
+    console.log("amount is", amount);
 })
