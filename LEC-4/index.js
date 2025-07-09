@@ -13,22 +13,22 @@
 
 let product =[{
     name: "Samsung Galaxy S23",
-    price: 79999,
+    amount: 79999,
     quantity: 10,
 },
 {
     name: "Apple iPhone 14",
-    price: 99999,
+    amount: 99999,
     quantity: 5,
 },
 {
     name: "OnePlus 11",
-    price: 56999,
+    amount: 56999,
     quantity: 8,
 },
 {
     name: "Google Pixel 7",
-    price: 59999,
+    amount: 59999,
     quantity: 0,
 }];
 function buyProduct(product_Name,cb){
@@ -41,7 +41,7 @@ function buyProduct(product_Name,cb){
     };
 
 
-buyProduct("motorolla", function(err,amount){
+buyProduct("OnePlus 11", function(err,amount){
     if(err){
         return console.log(err);
     }
