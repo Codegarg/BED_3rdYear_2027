@@ -50,7 +50,8 @@ function deductAmount(amount,cb){
     }
     else{
         availableAmount -= amount;
-        cb(null,availableAmount);
+        cb(null,"amount deducted");
+
     }
 
 }
