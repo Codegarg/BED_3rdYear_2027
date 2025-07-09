@@ -41,9 +41,29 @@ function buyProduct(product_Name,cb){
     };
 
 
+
+
+let availableAmount = 100000;
+function deductAmount(amount,cb){
+    if(availableAmount < amount){
+        return cb("Insufficient balance",null);
+    }
+    else{
+        availableAmount -= amount;
+        cb(null,availableAmount);
+    }
+
+}
+
 buyProduct("OnePlus 11", function(err,amount){
     if(err){
         return console.log(err);
     }
     console.log("amount is", amount);
+    deductAmount(amount, function(err, availableAmount){
+        if(err){
+            return console.log(err);
+        }
+        console.log("Available amount after purchase is", availableAmount);
+    });
 })
