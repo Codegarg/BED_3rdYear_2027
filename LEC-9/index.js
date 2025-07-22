@@ -10,7 +10,8 @@ app.get('/', (req, res) => {
 app.post('/end', (req, res) => {
     res.send("End point reached!");
     console.log(req.body);
-    
+
+
     let data = req.body;
     fs.writeFile('data.txt', JSON.stringify(data), (err) => {
         if (err) {
@@ -19,6 +20,7 @@ app.post('/end', (req, res) => {
             console.log('Data written to file successfully');
         }
     });
+
 });
 
 

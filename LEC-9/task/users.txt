@@ -1,0 +1,9 @@
+{
+  "userid": "ridham002@gmail.com",
+  "name": "Ridham",
+  "password": "pnry@786"
+}{
+  "userid": "prerit@gmail.com",
+  "name": "Prerit",
+  "password": "pnry@786"
+}
