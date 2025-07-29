@@ -34,4 +34,15 @@ console.log(data);
 el4.innerText = "changed using js";
 
 let data2 = ul.innerHTML;
+let data3 = ul.innerText;
+let data4 = ul.textContent;
 console.log(data2);
+console.log(data3);
+console.log(data4);
+
+ul.innerHTML =`<li class="item">item 1</li>
+        <li class="item">item 2</li>
+        <li class="item">item 3</li>`
+/*
+
+*/ 
