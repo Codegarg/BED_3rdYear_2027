@@ -65,7 +65,8 @@ console.log(el5.classList.contains("delete"));
 el5.classList.remove("item");
 console.log(el5.classList);
 
-/*
-Element.addEventListener("event name", function(){
+
+document.querySelector(".signup").addEventListener("click", function(){
+    document.querySelector("form").style.display = "block";
+    
 });
-*/
