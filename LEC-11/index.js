@@ -43,6 +43,11 @@ console.log(data4);
 ul.innerHTML =`<li class="item">item 1</li>
         <li class="item">item 2</li>
         <li class="item">item 3</li>`
+        
 /*
-
+getAttribute
+setAttribute
+classList
 */ 
+
+
