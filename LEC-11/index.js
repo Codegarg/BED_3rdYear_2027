@@ -13,13 +13,13 @@
 // let el3 = document.getElementsByTagName("p");
 // console.log(el3[0]);
 
-let el4 = document.querySelector("p");
-let el5 = document.querySelector(".item");
-let el6 = document.querySelectorAll(".item");
-let ul = document.querySelector("#container");
-console.log(el4);
-console.log(el5);
-console.log(el6);
+// let el4 = document.querySelector("p");
+// let el5 = document.querySelector(".item");
+// let el6 = document.querySelectorAll(".item");
+// let ul = document.querySelector("#container");
+// console.log(el4);
+// console.log(el5);
+// console.log(el6);
 
 
 
@@ -29,25 +29,43 @@ innerText
 innerHTML
 textContent
 */
-let data = el4.innerText;
-console.log(data);
-el4.innerText = "changed using js";
+// let data = el4.innerText;
+// console.log(data);
+// el4.innerText = "changed using js";
 
-let data2 = ul.innerHTML;
-let data3 = ul.innerText;
-let data4 = ul.textContent;
-console.log(data2);
-console.log(data3);
-console.log(data4);
+// let data2 = ul.innerHTML;
+// let data3 = ul.innerText;
+// let data4 = ul.textContent;
+// console.log(data2);
+// console.log(data3);
+// console.log(data4);
 
-ul.innerHTML =`<li class="item">item 1</li>
-        <li class="item">item 2</li>
-        <li class="item">item 3</li>`
-        
+// ul.innerHTML =`<li class="item">item 1</li>
+//         <li class="item">item 2</li>
+//         <li class="item">item 3</li>`
+
+/*diiference between innerText and textContent
+innerText - returns the visible text content of an element, excluding hidden elements and styles.
+textContent - returns the text content of an element, including hidden elements and styles.
+*/
+
 /*
 getAttribute
 setAttribute
 classList
-*/ 
+*/
+let el5 = document.querySelector(".item");
+// console.dir(el5);
+// console.dir(el5.getAttribute("id")); 
+// console.dir(el5.getAttribute("class"));
+// el5.setAttribute("id", "js");
+// console.log(el5.getAttribute("id"));
+el5.classList.add("delete");
+console.log(el5.classList.contains("delete"));
+el5.classList.remove("item");
+console.log(el5.classList);
 
-
+/*
+Element.addEventListener("event name", function(){
+});
+*/
