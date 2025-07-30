@@ -18,3 +18,19 @@ button.addEventListener("click", () => {
     const randomIndex = Math.floor(Math.random() * colors.length);
     box.style.backgroundColor = colors[randomIndex];
 });
+
+let change = false;
+button.addEventListener("click", () => {
+    if (change) {
+        clearInterval(colorInterval);
+        change = false;
+        button.textContent = "Start Changing Color";
+    } else {
+        colorInterval = setInterval(() => {
+            const randomIndex = Math.floor(Math.random() * colors.length);
+            box.style.backgroundColor = colors[randomIndex];
+        }, 500);
+        change = true;
+        button.textContent = "Stop Changing Color";
+    }
+});
