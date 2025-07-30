@@ -2,11 +2,20 @@
 //2. insert require data either by using .innerText or innerHtml
 //3. insert new element in parent container using appendChild or append
 
-
-let todo={
-    id: 1,
-    title: "study at 9pm"
-}
+let todos =[
+    {
+        id: 1,
+        title: "study at 9pm"
+    },
+    {
+        id: 2,
+        title: "walk at 10pm"
+    },
+    {
+        id: 3,
+        title: "sleep at 11pm"
+    }
+]
 let todoContainer = document.querySelector(".todoContainer");
 function addTodo(todo){
     let li = document.createElement("li");
@@ -20,4 +29,10 @@ function addTodo(todo){
             </div>`;
     todoContainer.appendChild(li);        
 }
-addTodo(todo);
+
+function showAllTodos(todos){
+    todos.forEach(todo => {
+        addTodo(todo);
+    });
+}
+showAllTodos(todos);
