@@ -12,7 +12,7 @@ function addTodo(todo){
     let li = document.createElement("li");
     li.innerHTML = `<div>
                 <input type="checkbox" name="" id="">
-                <h1>Todo 1</h1>
+                <h1>${todo.title}</h1>
             <div>
             <button>❌</button>
             <button>✏️</button>
