@@ -20,3 +20,4 @@ function addTodo(todo){
             </div>`;
     todoContainer.appendChild(li);        
 }
+addTodo(todo);
