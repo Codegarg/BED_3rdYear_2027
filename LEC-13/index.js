@@ -1,35 +1,16 @@
-let userContainer = document.querySelector('.user-container');
-console.log(userContainer);
-function getUserData(URL) {
-    fetch(URL)
-        .then((res)=> {
-            console.log(res);
-            return res.json()
+const express = require('express');
+const app = express();
+const fs = require('fs');
+app.use(express.static(__dirname+ '/public'));
 
-        })
-        .then((data)=> {
-            console.log(data);
-            data.forEach((user)=> {
-                displayUser(user);
-            });
-        })
-        .catch((err)=> {
-            console.log(err);
-        });
-}
-function displayUser(user){
-    let li = document.createElement('li');
-    li.setAttribute('class', 'user-item');
-    li.innerHTML = `  <div class="user-info">
-                <h1>${user.name}</h1>
-                <p>${user.username}</p>
-            </div>
-            <div class="user-btn">
-                <button class="user-delete">❌</button>
-                <button class="user-edit">✏️</button>
-            </div>`
-            userContainer.appendChild(li);
-}
+app.get('/users', (req, res) => {
+    fs.readFile('users.json', 'utf8', function(err, data){
+        if (err) res.send(err);
+        let allusers = JSON.parse(data);
+        res.json(allusers);
+    });
+})
 
-
-getUserData('https://jsonplaceholder.typicode.com/users')
+app.listen(4444, function() {
+    console.log('Server started on port 4444');
+});
