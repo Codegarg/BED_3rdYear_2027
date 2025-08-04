@@ -1,30 +1,35 @@
 let userContainer = document.querySelector('.user-container');
 console.log(userContainer);
-function getUsersData(URl){
+function getUserData(URL) {
     fetch(URL)
-    .then((res)=>{
-        console.log(res)
-        return res.json();
-    })
-    .then((data)=>{
-        console.log(data);
-    })
-    .catch((err)=>{
-        console.error(err);
-    });
-}
+        .then((res)=> {
+            console.log(res);
+            return res.json()
 
-function displayUsers(user){
+        })
+        .then((data)=> {
+            console.log(data);
+            data.forEach((user)=> {
+                displayUser(user);
+            });
+        })
+        .catch((err)=> {
+            console.log(err);
+        });
+}
+function displayUser(user){
     let li = document.createElement('li');
     li.setAttribute('class', 'user-item');
-    li.innerHTML = '<div class = "user-info">
+    li.innerHTML = `  <div class="user-info">
                 <h1>${user.name}</h1>
-                <p>${user.email}</p>
+                <p>${user.username}</p>
             </div>
-            <div class = "user-btn">
-                <button class = "user-delete">❌</button>
-                <button class = "user-edit">✏️</button>
-            </div>'
-    userContainer.appendChild(li);
+            <div class="user-btn">
+                <button class="user-delete">❌</button>
+                <button class="user-edit">✏️</button>
+            </div>`
+            userContainer.appendChild(li);
 }
-getUsersData('https://jsonplaceholder.typicode.com/users');
+
+
+getUserData('https://jsonplaceholder.typicode.com/users')
