@@ -3,6 +3,7 @@ const app = express();
 const fs = require('fs');
 app.use(express.static(__dirname+ '/public'));
 app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 
 app.get('/users', (req, res) => {
     fs.readFile('users.json', 'utf-8', function(err, data){

@@ -1,4 +1,8 @@
 let userContainer = document.querySelector('.user-container');
+let registerForm = document.querySelector('.register');
+let nameInput = document.querySelector('.name');
+let usernameInput = document.querySelector('.username');
+
 console.log(userContainer);
 function getUserData(URL) {
     fetch(URL)
@@ -35,3 +39,30 @@ function displayUser(user){
 // getUserData('https://jsonplaceholder.typicode.com/users')
 
 getUserData('http://localhost:4400/users');
+
+function addUser(name,username,URL){
+    let data={
+        name: name,
+        username: username
+    };
+    fetch(URL, {
+        method: 'POST',
+        body:JSON.stringify(data),
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
+    .then((res) => {
+        return res.json()
+    })
+    .then((data) =>{
+        console.log(data)
+    })
+}
+
+registerForm.addEventListener('submit', function(e){
+    e.preventDefault();
+    let name = nameInput.value;
+    let username = usernameInput.value;
+    addUser(name, username, 'http://localhost:4400/adduser');
+});
