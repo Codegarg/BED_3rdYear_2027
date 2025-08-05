@@ -34,4 +34,4 @@ function displayUser(user){
 
 // getUserData('https://jsonplaceholder.typicode.com/users')
 
-getUserData('http://localhost:4444/users');
+getUserData('http://localhost:4400/users');
