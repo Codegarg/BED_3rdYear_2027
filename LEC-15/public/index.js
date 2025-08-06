@@ -2,7 +2,6 @@ let userContainer = document.querySelector('.user-container');
 let registerForm = document.querySelector('.register');
 let nameInput = document.querySelector('.name');
 let usernameInput = document.querySelector('.username');
-
 console.log(userContainer);
 function getUserData(URL) {
     fetch(URL)
