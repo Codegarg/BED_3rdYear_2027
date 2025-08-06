@@ -29,7 +29,6 @@ app.post('/adduser', (req, res) => {
         }
         alluser.push(newUser);
         fs.writeFileSync("./users.json", JSON.stringify(alluser));
-        res.send("User added successfully");
      }catch(error){
         return res.send(error);
      }
