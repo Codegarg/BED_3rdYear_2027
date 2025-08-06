@@ -14,8 +14,8 @@ async function getComment(URL) {
 
     //convert to async await
     try {
-        let comments = await axios.get(URL);
-        console.log(comments);
+        let response = await axios.get(URL);
+        console.log(response.data);
     } catch (err) {
         console.error(err);
     }
