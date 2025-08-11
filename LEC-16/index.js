@@ -4,7 +4,7 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-const Blogs = require("./model/user")
+const Blogs = require("./model/blog")
 app.post("/blogs",async(req,res)=>{
     let {title,body} = req.body;
     let newBlog = new Blogs({
@@ -24,9 +24,22 @@ app.get("/blogs",async(req,res)=>{
     let allblog = await Blogs.find();
     res.json({
         success: true,
-        data: allblog,
+        data: allblog
     });
 })
+
+app.get("/blogs/:id",async(req,res)=>{
+    let {id} = req.params;
+    let blog = await Blogs.findOne({_id: id});
+    res.json({
+        success: true,
+        data: blog
+    });
+})
+
+//app.post("/users");
+//app.get("/users");
+//app.get("/users/:id");
 
 // app.post("/blogs",(req,res)=>{
 //     let {title,body} = req.body;
