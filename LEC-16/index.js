@@ -20,6 +20,14 @@ app.post("/blogs",async(req,res)=>{
     });
 })
 
+app.get("/blogs",async(req,res)=>{
+    let allblog = await Blogs.find();
+    res.json({
+        success: true,
+        data: allblog,
+    });
+})
+
 // app.post("/blogs",(req,res)=>{
 //     let {title,body} = req.body;
 //     console.log(title,body);
