@@ -15,7 +15,11 @@ const user = new schema({
     password: {
         type: String,
         required: true
-    }
+    },
+    blogs: [{
+        type: mongoose.Types.ObjectId,
+        ref: "Blog"
+    }]
 })
 
 module.exports = mongoose.model('User', user)
