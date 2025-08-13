@@ -108,6 +108,32 @@ app.delete("/blogs/:blogId",async(req,res)=>{
     })
 })
 
+//update blog
+app.put("/blogs/:blogId",async (req,res)=>{
+    let {blogId} = req.params;
+    let {title,body} = req.body;
+    let blog = await Blogs.findById(blogId);
+    if(!blog){
+        return res.json({
+            success:false,
+            message:"Blog not found"
+        })
+    }
+    if(blog.userId != req.body.userId){
+        return res.json({
+            success:false,
+            message:"You are not authorized to update this blog"
+        })
+    }
+    blog.title = title;
+    blog.body = body;
+    await blog.save();
+    res.json({
+        success:true,
+        message:"Blog updated successfully",
+        data:blog
+    })
+})
 
 app.listen(4445, function() {
     console.log('Server started on port 4445');
