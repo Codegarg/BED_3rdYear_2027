@@ -10,3 +10,5 @@ function m4(req,res,next){
 
 module.exports.m3=m3;
 module.exports.m4=m4;
+
+//runs only on specific path on which it is applied
