@@ -2,11 +2,14 @@ const express = require('express');
 const { m1, m2 } = require('./middleware/firstmiddleware');
 const { m3 } = require('./middleware/pathlevel');
 const app = express();
+const userRoutes = require('./routes/userRoutes');
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(__dirname + '/public'));
 app.use(m1);
 // app.use(m2);
+app.use('/api/users', userRoutes);
+
 app.get('/health',m3,(req, res,next) => {
     console.log("Running controller function")
     next();
