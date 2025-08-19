@@ -1,20 +1,20 @@
 const express = require('express');
 const { m1, m2 } = require('./middleware/firstmiddleware');
-const { m3 }
+const { m3 } = require('./middleware/pathlevel');
 const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(__dirname + '/public'));
 app.use(m1);
 // app.use(m2);
-app.get('/health', (req, res,next) => {
+app.get('/health',m3,(req, res,next) => {
     console.log("Running controller function")
     next();
     res.json({
         status: "ok",
         message: "Health check successful"
     })
-    console.log('after response');
+    //console.log('after response');
 })
 app.get("/home",(req,res,next)=>{
     console.log("Running home endpoint.....");
