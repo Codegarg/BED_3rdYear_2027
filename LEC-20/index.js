@@ -1,5 +1,6 @@
 const express = require('express');
 const { m1, m2 } = require('./middleware/firstmiddleware');
+const { m3 }
 const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -15,7 +16,13 @@ app.get('/health', (req, res,next) => {
     })
     console.log('after response');
 })
-
+app.get("/home",(req,res,next)=>{
+    console.log("Running home endpoint.....");
+    res.json({
+        success:true,
+        message:"Welcome to Home page"
+    })
+})
 app.use(m2);
 
 

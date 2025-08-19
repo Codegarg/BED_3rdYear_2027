@@ -1,12 +1,12 @@
 function m1(req, res, next) {
-  console.log('First middleware executed');
+  console.log('running middleware 1..........');
   req.userId="4";
   next();
   console.log('after next 1');
 }
 
 function m2(req, res, next) {
-  console.log('Second middleware executed');
+  console.log('running middleware 2..........');
   console.log(req.userId);
   req.isAdmin = true;
   return next();
