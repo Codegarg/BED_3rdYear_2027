@@ -17,7 +17,7 @@ app.get("/health", (req, res) => {
 //end point for signup --adding new user into database
 app.post("/api/users/signup", async (req, res) => {
     try {
-        let { name, email, password } = req.body
+        let { username, email, password } = req.body
         let userExist = await User.findOne({ email: email })
         if (userExist) {
             return res.json({
@@ -26,7 +26,7 @@ app.post("/api/users/signup", async (req, res) => {
             })
         }
         let newUser = new User({
-            name: name,
+            username: username,
             email: email,
             password: password
         })
