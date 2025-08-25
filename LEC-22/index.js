@@ -2,6 +2,7 @@ const express = require("express")
 const mongoose = require("mongoose")
 const app = express();
 const User = require("./model/users");
+const jwt =  require("jsonwebtoken");
 // const { use } = require("react");
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
@@ -61,9 +62,11 @@ app.post("/api/auth/login", async (req, res) => {
             })
         }
         if (userExist.password == password) {
+            let token = jwt.sign({"user":userExist},"okkkkkkk....")
             return res.json({
                 success: true,
-                message: "Login successfull"
+                message: "Login successfully",
+                token: token
             })
         }
     } catch (error) {
